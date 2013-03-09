@@ -64,10 +64,10 @@ contents
     ;
 
 content
-    : TEXT    -> ['text', $1]
-    | ATCHAR  -> ['text', '@']
-    | AT expr -> $2
-    | AT expr LPAREN RPAREN -> $2
+    : TEXT    -> ['html', $1]
+    | ATCHAR  -> ['html', '@']
+    | AT expr -> ['text', $2]
+    | AT expr LPAREN RPAREN -> ['text', $2]
     | AT if   -> $2
     | AT for  -> $2
     | AT call -> $2
