@@ -55,6 +55,7 @@
 
 main
     : contents EOF
+      { return $1 }
     ;
 
 contents
