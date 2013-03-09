@@ -67,6 +67,7 @@ content
     : TEXT    -> ['text', $1]
     | ATCHAR  -> ['text', '@']
     | AT expr -> $2
+    | AT expr LPAREN RPAREN -> $2
     | AT if   -> $2
     | AT for  -> $2
     | AT call -> $2
