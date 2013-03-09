@@ -6,9 +6,15 @@
 
 %%
 
-"@@"      return 'ATCHAR';
-\n" "*"@" this.begin('directive'); return 'AT';
-"@"       this.begin('directive'); return 'AT';
+\n" "*"@if"      this.begin('directive'); return 'IF';
+\n" "*"@else"    this.begin('directive'); return 'ELSE';
+\n" "*"@elsif"   this.begin('directive'); return 'ELSIF';
+\n" "*"@endif"   this.begin('directive'); return 'ENDIF';
+\n" "*"@for"     this.begin('directive'); return 'FOR';
+\n" "*"@endfor"  this.begin('directive'); return 'ENDFOR';
+
+"@@"  return 'ATCHAR';
+"@"   this.begin('directive'); return this.lex();
 
 <directive>"if"      return 'IF';
 <directive>"else"    return 'ELSE';
@@ -66,11 +72,11 @@ contents
 content
     : TEXT    -> ['html', $1]
     | ATCHAR  -> ['html', '@']
-    | AT expr -> ['text', $2]
-    | AT expr LPAREN RPAREN -> ['text', $2]
-    | AT if   -> $2
-    | AT for  -> $2
-    | AT call -> $2
+    | expr -> ['text', $1]
+    | expr LPAREN RPAREN -> ['text', $1]
+    | if   -> $1
+    | for  -> $1
+    | call -> $1
     ;
 
 expr
@@ -85,10 +91,10 @@ if
     ;
 
 if_end
-    : AT ENDIF  -> null
-    | AT ELSE contents AT ENDIF  -> $3
-    | AT ELSEIF LPAREN expr RPAREN contents if_end
-        { $$ = ['if', $4, $6, $7] }
+    : ENDIF  -> null
+    | ELSE contents ENDIF  -> $2
+    | ELSEIF LPAREN expr RPAREN contents if_end
+        { $$ = ['if', $3, $5, $6] }
     ;
 
 for
@@ -97,8 +103,8 @@ for
     ;
 
 for_end
-    : AT ENDFOR  -> null
-    | AT ELSE contents AT ENDFOR  -> $3
+    : ENDFOR  -> null
+    | ELSE contents ENDFOR  -> $2
     ;
 
 call
