@@ -80,7 +80,7 @@ content
 
 expr
     : IDENT          -> {type: 'lookup', loc: @$, name: $1}
-    | expr DOT IDENT -> {type: 'lookup', loc: @$, name: $3, base: $1}
+    | expr DOT IDENT -> {type: 'lookup', loc: @3, name: $3, base: $1}
     | NUMBER         -> {type: 'number', value: $1}
     ;
 
