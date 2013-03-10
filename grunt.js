@@ -10,8 +10,13 @@ module.exports = function(grunt) {
     },
 
     concat: {
+      base: {
+        src: ["lib/mockle.js", "lib/mockle/parser.js", "lib/mockle/scope.js", "lib/mockle/template.js", "lib/mockle/template_directory.js", "lib/mockle/mockie.js"],
+        dest: "mockle.js"
+      },
+
       browser: {
-        src: ["lib/mockle.js", "lib/mockle/parser.js", "lib/mockle/scope.js", "lib/mockle/template.js", "lib/mockle/browser.js", "lib/mockle/template_directory.js", "lib/mockle/mockie.js"],
+        src: ["mockle.js", "lib/mockle/browser.js"],
         dest: "mockle.browser.js"
       }
     }
