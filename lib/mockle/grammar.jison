@@ -65,41 +65,40 @@ main
     ;
 
 contents
-    : content  -> ['contents', $1]
-    | contents content -> ($1.push($2), $1)
+    : content  -> {type: 'contents', children: [$1]}
+    | contents content -> ($1.children.push($2), $1)
     ;
 
 content
-    : TEXT    -> ['html', $1]
-    | ATCHAR  -> ['html', '@']
-    | expr -> ['text', $1]
-    | expr LPAREN RPAREN -> ['text', $1]
+    : TEXT    -> {type: 'html', value: $1}
+    | ATCHAR  -> {type: 'html', value: '@'}
+    | expr    -> {type: 'text', value: $1}
     | if   -> $1
     | for  -> $1
     | call -> $1
     ;
 
 expr
-    : IDENT          -> ['lookup', $1]
-    | expr DOT IDENT -> ['lookup', $3, $1]
-    | NUMBER         -> ['number', $1]
+    : IDENT          -> {type: 'lookup', loc: @$, name: $1}
+    | expr DOT IDENT -> {type: 'lookup', loc: @$, name: $3, base: $1}
+    | NUMBER         -> {type: 'number', value: $1}
     ;
 
 if
     : IF LPAREN expr RPAREN contents if_end
-        { $$ = ['if', $3, $5, $6] }
+        { $$ = {type: 'if', cond: $3, tbranch: $5, fbranch: $6} }
     ;
 
 if_end
     : ENDIF  -> null
     | ELSE contents ENDIF  -> $2
     | ELSEIF LPAREN expr RPAREN contents if_end
-        { $$ = ['if', $3, $5, $6] }
+        { $$ = {type: 'if', cond: $3, tbranch: $5, fbranch: $6} }
     ;
 
 for
     : FOR LPAREN IDENT IN expr RPAREN contents for_end
-        { $$ = ['for', $3, $5, $7, $8] }
+        { $$ = {type: 'for', name: $3, expr: $5, body: $7, ebranch: $8} }
     ;
 
 for_end
@@ -109,9 +108,9 @@ for_end
 
 call
     : CALL LPAREN CNAME arglist RPAREN
-        { $$ = ['call', $3, $4] }
+        { $$ = {type: 'call', loc: @$, name: $3, args: $4} }
     | CALL LPAREN CNAME RPAREN
-        { $$ = ['call', $3, []] }
+        { $$ = {type: 'call', loc: @$, name: $3, args: []} }
     ;
 
 arg
