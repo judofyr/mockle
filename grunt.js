@@ -35,6 +35,10 @@ module.exports = function(grunt) {
     var src = fs.readFileSync(this.data.grammar, 'utf8');
     var generator = new jison.Generator(src, settings);
     var res = generator.generate();
+    res = res.replace(
+      /(var (\w+) = (.*).split\(\/.*\n)/g,
+      '$1 if (!$2.length) $2 = ["",""];\n'
+    );
 
     if (this.data.before) {
       res = grunt.template.process(this.data.before) + res;
