@@ -2,9 +2,12 @@
 <script src="mockle.browser.js"></script>
 <html>
 <head>
-  <title>Mockle Example</title>
+  <title>
+    @if(title) @title - @endif
+    Mockle
+  </title>
 </head>
-<body style="background: ff0">
+<body>
   <h1>Mockle Example</h1>
   @content
 </body>
