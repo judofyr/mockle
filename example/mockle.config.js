@@ -1,6 +1,8 @@
+Mockle.include('MinFaker.js');
+
 Mockle.config(function(m) {
   m.merge({
-    name: 'world',
+    name: Faker.Name.findName(),
     title: null
   });
 });
