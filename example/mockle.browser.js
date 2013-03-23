@@ -1,1 +1,1464 @@
-((function(){var a;(a=function(a){function b(b){var c=d[b];c?(d[b]=0,c()):a.load&&a.load(b)}var c=a.loaded={},d={},e={};return a.use=function(a,d){typeof a=="string"&&(a=[a]);var f=a.length+1,g,h=function(){--f==0&&d&&d()};h();while(g=a.shift())c[g]?h():((e[g]||(e[g]=[])).push(h),b(g))},a.define=function(f,g,h){d[f]=function(){a.use(g||[],function(){var a,b=e[f];c[f]=1,h&&h();while(a=b&&b.shift())a()})},e[f]&&b(f)},a})(a);var b=this.Mockle=a({});b.module=function(a,c,d){b.define(a,c,function(){function c(){}c.prototype=d,d.create=function(){var a=new c;return a.initialize&&a.initialize.apply(a,arguments),a},b[a]=d}),d.setup&&b.use(a,function(){d.setup()})}})).call(this),Mockle.define("Parser",[],function(){var a=function(){function c(){this.yy={}}var a={trace:function(){},yy:{},symbols_:{error:2,main:3,contents:4,EOF:5,content:6,TEXT:7,ATCHAR:8,expr:9,"if":10,"for":11,call:12,IDENT:13,DOT:14,NUMBER:15,IF:16,LPAREN:17,RPAREN:18,if_end:19,ENDIF:20,ELSE:21,ELSEIF:22,FOR:23,IN:24,for_end:25,ENDFOR:26,CALL:27,CNAME:28,arglist:29,arg:30,COMMA:31,EQ:32,$accept:0,$end:1},terminals_:{2:"error",5:"EOF",7:"TEXT",8:"ATCHAR",13:"IDENT",14:"DOT",15:"NUMBER",16:"IF",17:"LPAREN",18:"RPAREN",20:"ENDIF",21:"ELSE",22:"ELSEIF",23:"FOR",24:"IN",26:"ENDFOR",27:"CALL",28:"CNAME",31:"COMMA",32:"EQ"},productions_:[0,[3,2],[4,1],[4,2],[6,1],[6,1],[6,1],[6,1],[6,1],[6,1],[9,1],[9,3],[9,1],[10,6],[19,1],[19,3],[19,6],[11,8],[25,1],[25,3],[12,5],[12,4],[30,2],[30,4],[29,1],[29,2]],performAction:function(b,c,d,e,f,g,h){var i=g.length-1;switch(f){case 1:return g[i-1];case 2:this.$={type:"contents",children:[g[i]]};break;case 3:this.$=(g[i-1].children.push(g[i]),g[i-1]);break;case 4:this.$={type:"html",value:g[i]};break;case 5:this.$={type:"html",value:"@"};break;case 6:this.$={type:"text",value:g[i]};break;case 7:this.$=g[i];break;case 8:this.$=g[i];break;case 9:this.$=g[i];break;case 10:this.$={type:"lookup",loc:this._$,name:g[i]};break;case 11:this.$={type:"lookup",loc:h[i],name:g[i],base:g[i-2]};break;case 12:this.$={type:"number",value:g[i]};break;case 13:this.$={type:"if",cond:g[i-3],tbranch:g[i-1],fbranch:g[i]};break;case 14:this.$=null;break;case 15:this.$=g[i-1];break;case 16:this.$={type:"if",cond:g[i-3],tbranch:g[i-1],fbranch:g[i]};break;case 17:this.$={type:"for",name:g[i-5],expr:g[i-3],body:g[i-1],ebranch:g[i]};break;case 18:this.$=null;break;case 19:this.$=g[i-1];break;case 20:this.$={type:"call",loc:this._$,name:g[i-2],args:g[i-1]};break;case 21:this.$={type:"call",loc:this._$,name:g[i-1],args:[]};break;case 22:this.$=["argsplat",g[i]];break;case 23:this.$=["arg",g[i-2],g[i]];break;case 24:this.$=[g[i]];break;case 25:this.$=(g[i-1].push(g[i]),g[i-1])}},table:[{3:1,4:2,6:3,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],27:[1,14]},{1:[3]},{5:[1,15],6:16,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],27:[1,14]},{5:[2,2],7:[2,2],8:[2,2],13:[2,2],15:[2,2],16:[2,2],20:[2,2],21:[2,2],22:[2,2],23:[2,2],26:[2,2],27:[2,2]},{5:[2,4],7:[2,4],8:[2,4],13:[2,4],15:[2,4],16:[2,4],20:[2,4],21:[2,4],22:[2,4],23:[2,4],26:[2,4],27:[2,4]},{5:[2,5],7:[2,5],8:[2,5],13:[2,5],15:[2,5],16:[2,5],20:[2,5],21:[2,5],22:[2,5],23:[2,5],26:[2,5],27:[2,5]},{5:[2,6],7:[2,6],8:[2,6],13:[2,6],14:[1,17],15:[2,6],16:[2,6],20:[2,6],21:[2,6],22:[2,6],23:[2,6],26:[2,6],27:[2,6]},{5:[2,7],7:[2,7],8:[2,7],13:[2,7],15:[2,7],16:[2,7],20:[2,7],21:[2,7],22:[2,7],23:[2,7],26:[2,7],27:[2,7]},{5:[2,8],7:[2,8],8:[2,8],13:[2,8],15:[2,8],16:[2,8],20:[2,8],21:[2,8],22:[2,8],23:[2,8],26:[2,8],27:[2,8]},{5:[2,9],7:[2,9],8:[2,9],13:[2,9],15:[2,9],16:[2,9],20:[2,9],21:[2,9],22:[2,9],23:[2,9],26:[2,9],27:[2,9]},{5:[2,10],7:[2,10],8:[2,10],13:[2,10],14:[2,10],15:[2,10],16:[2,10],18:[2,10],20:[2,10],21:[2,10],22:[2,10],23:[2,10],26:[2,10],27:[2,10],31:[2,10]},{5:[2,12],7:[2,12],8:[2,12],13:[2,12],14:[2,12],15:[2,12],16:[2,12],18:[2,12],20:[2,12],21:[2,12],22:[2,12],23:[2,12],26:[2,12],27:[2,12],31:[2,12]},{17:[1,18]},{17:[1,19]},{17:[1,20]},{1:[2,1]},{5:[2,3],7:[2,3],8:[2,3],13:[2,3],15:[2,3],16:[2,3],20:[2,3],21:[2,3],22:[2,3],23:[2,3],26:[2,3],27:[2,3]},{13:[1,21]},{9:22,13:[1,10],15:[1,11]},{13:[1,23]},{28:[1,24]},{5:[2,11],7:[2,11],8:[2,11],13:[2,11],14:[2,11],15:[2,11],16:[2,11],18:[2,11],20:[2,11],21:[2,11],22:[2,11],23:[2,11],26:[2,11],27:[2,11],31:[2,11]},{14:[1,17],18:[1,25]},{24:[1,26]},{18:[1,28],29:27,30:29,31:[1,30]},{4:31,6:3,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],27:[1,14]},{9:32,13:[1,10],15:[1,11]},{18:[1,33],30:34,31:[1,30]},{5:[2,21],7:[2,21],8:[2,21],13:[2,21],15:[2,21],16:[2,21],20:[2,21],21:[2,21],22:[2,21],23:[2,21],26:[2,21],27:[2,21]},{18:[2,24],31:[2,24]},{9:35,13:[1,36],15:[1,11]},{6:16,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],19:37,20:[1,38],21:[1,39],22:[1,40],23:[1,13],27:[1,14]},{14:[1,17],18:[1,41]},{5:[2,20],7:[2,20],8:[2,20],13:[2,20],15:[2,20],16:[2,20],20:[2,20],21:[2,20],22:[2,20],23:[2,20],26:[2,20],27:[2,20]},{18:[2,25],31:[2,25]},{14:[1,17],18:[2,22],31:[2,22]},{14:[2,10],18:[2,10],31:[2,10],32:[1,42]},{5:[2,13],7:[2,13],8:[2,13],13:[2,13],15:[2,13],16:[2,13],20:[2,13],21:[2,13],22:[2,13],23:[2,13],26:[2,13],27:[2,13]},{5:[2,14],7:[2,14],8:[2,14],13:[2,14],15:[2,14],16:[2,14],20:[2,14],21:[2,14],22:[2,14],23:[2,14],26:[2,14],27:[2,14]},{4:43,6:3,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],27:[1,14]},{17:[1,44]},{4:45,6:3,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],27:[1,14]},{9:46,13:[1,10],15:[1,11]},{6:16,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],20:[1,47],23:[1,13],27:[1,14]},{9:48,13:[1,10],15:[1,11]},{6:16,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],21:[1,51],23:[1,13],25:49,26:[1,50],27:[1,14]},{14:[1,17],18:[2,23],31:[2,23]},{5:[2,15],7:[2,15],8:[2,15],13:[2,15],15:[2,15],16:[2,15],20:[2,15],21:[2,15],22:[2,15],23:[2,15],26:[2,15],27:[2,15]},{14:[1,17],18:[1,52]},{5:[2,17],7:[2,17],8:[2,17],13:[2,17],15:[2,17],16:[2,17],20:[2,17],21:[2,17],22:[2,17],23:[2,17],26:[2,17],27:[2,17]},{5:[2,18],7:[2,18],8:[2,18],13:[2,18],15:[2,18],16:[2,18],20:[2,18],21:[2,18],22:[2,18],23:[2,18],26:[2,18],27:[2,18]},{4:53,6:3,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],27:[1,14]},{4:54,6:3,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],27:[1,14]},{6:16,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],26:[1,55],27:[1,14]},{6:16,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],19:56,20:[1,38],21:[1,39],22:[1,40],23:[1,13],27:[1,14]},{5:[2,19],7:[2,19],8:[2,19],13:[2,19],15:[2,19],16:[2,19],20:[2,19],21:[2,19],22:[2,19],23:[2,19],26:[2,19],27:[2,19]},{5:[2,16],7:[2,16],8:[2,16],13:[2,16],15:[2,16],16:[2,16],20:[2,16],21:[2,16],22:[2,16],23:[2,16],26:[2,16],27:[2,16]}],defaultActions:{15:[2,1]},parseError:function(b,c){throw new Error(b)},parse:function(b){function p(a){d.length=d.length-2*a,e.length=e.length-a,f.length=f.length-a}function q(){var a;return a=c.lexer.lex()||1,typeof a!="number"&&(a=c.symbols_[a]||a),a}var c=this,d=[0],e=[null],f=[],g=this.table,h="",i=0,j=0,k=0,l=2,m=1;this.lexer.setInput(b),this.lexer.yy=this.yy,this.yy.lexer=this.lexer,this.yy.parser=this,typeof this.lexer.yylloc=="undefined"&&(this.lexer.yylloc={});var n=this.lexer.yylloc;f.push(n);var o=this.lexer.options&&this.lexer.options.ranges;typeof this.yy.parseError=="function"&&(this.parseError=this.yy.parseError);var r,s,t,u,v,w,x={},y,z,A,B;for(;;){t=d[d.length-1];if(this.defaultActions[t])u=this.defaultActions[t];else{if(r===null||typeof r=="undefined")r=q();u=g[t]&&g[t][r]}if(typeof u=="undefined"||!u.length||!u[0]){var C="";if(!k){B=[];for(y in g[t])this.terminals_[y]&&y>2&&B.push("'"+this.terminals_[y]+"'");this.lexer.showPosition?C="Parse error on line "+(i+1)+":\n"+this.lexer.showPosition()+"\nExpecting "+B.join(", ")+", got '"+(this.terminals_[r]||r)+"'":C="Parse error on line "+(i+1)+": Unexpected "+(r==1?"end of input":"'"+(this.terminals_[r]||r)+"'"),this.parseError(C,{text:this.lexer.match,token:this.terminals_[r]||r,line:this.lexer.yylineno,loc:n,expected:B})}}if(u[0]instanceof Array&&u.length>1)throw new Error("Parse Error: multiple actions possible at state: "+t+", token: "+r);switch(u[0]){case 1:d.push(r),e.push(this.lexer.yytext),f.push(this.lexer.yylloc),d.push(u[1]),r=null,s?(r=s,s=null):(j=this.lexer.yyleng,h=this.lexer.yytext,i=this.lexer.yylineno,n=this.lexer.yylloc,k>0&&k--);break;case 2:z=this.productions_[u[1]][1],x.$=e[e.length-z],x._$={first_line:f[f.length-(z||1)].first_line,last_line:f[f.length-1].last_line,first_column:f[f.length-(z||1)].first_column,last_column:f[f.length-1].last_column},o&&(x._$.range=[f[f.length-(z||1)].range[0],f[f.length-1].range[1]]),w=this.performAction.call(x,h,j,i,this.yy,u[1],e,f);if(typeof w!="undefined")return w;z&&(d=d.slice(0,-1*z*2),e=e.slice(0,-1*z),f=f.slice(0,-1*z)),d.push(this.productions_[u[1]][0]),e.push(x.$),f.push(x._$),A=g[d[d.length-2]][d[d.length-1]],d.push(A);break;case 3:return!0}}return!0}},b=function(){var a={EOF:1,parseError:function(b,c){if(this.yy.parser)this.yy.parser.parseError(b,c);else throw new Error(b)},setInput:function(a){return this._input=a,this._more=this._less=this.done=!1,this.yylineno=this.yyleng=0,this.yytext=this.matched=this.match="",this.conditionStack=["INITIAL"],this.yylloc={first_line:1,first_column:0,last_line:1,last_column:0},this.options.ranges&&(this.yylloc.range=[0,0]),this.offset=0,this},input:function(){var a=this._input[0];this.yytext+=a,this.yyleng++,this.offset++,this.match+=a,this.matched+=a;var b=a.match(/(?:\r\n?|\n).*/g);return b?(this.yylineno++,this.yylloc.last_line++):this.yylloc.last_column++,this.options.ranges&&this.yylloc.range[1]++,this._input=this._input.slice(1),a},unput:function(a){var b=a.length,c=a.split(/(?:\r\n?|\n)/g);c.length||(c=["",""]),this._input=a+this._input,this.yytext=this.yytext.substr(0,this.yytext.length-b-1),this.offset-=b;var d=this.match.split(/(?:\r\n?|\n)/g);d.length||(d=["",""]),this.match=this.match.substr(0,this.match.length-1),this.matched=this.matched.substr(0,this.matched.length-1),c.length-1&&(this.yylineno-=c.length-1);var e=this.yylloc.range;return this.yylloc={first_line:this.yylloc.first_line,last_line:this.yylineno+1,first_column:this.yylloc.first_column,last_column:c?(c.length===d.length?this.yylloc.first_column:0)+d[d.length-c.length].length-c[0].length:this.yylloc.first_column-b},this.options.ranges&&(this.yylloc.range=[e[0],e[0]+this.yyleng-b]),this},more:function(){return this._more=!0,this},less:function(a){this.unput(this.match.slice(a))},pastInput:function(){var a=this.matched.substr(0,this.matched.length-this.match.length);return(a.length>20?"...":"")+a.substr(-20).replace(/\n/g,"")},upcomingInput:function(){var a=this.match;return a.length<20&&(a+=this._input.substr(0,20-a.length)),(a.substr(0,20)+(a.length>20?"...":"")).replace(/\n/g,"")},showPosition:function(){var a=this.pastInput(),b=(new Array(a.length+1)).join("-");return a+this.upcomingInput()+"\n"+b+"^"},next:function(){if(this.done)return this.EOF;this._input||(this.done=!0);var a,b,c,d,e,f;this._more||(this.yytext="",this.match="");var g=this._currentRules();for(var h=0;h<g.length;h++){c=this._input.match(this.rules[g[h]]);if(c&&(!b||c[0].length>b[0].length)){b=c,d=h;if(!this.options.flex)break}}if(b){f=b[0].match(/(?:\r\n?|\n).*/g),f&&(this.yylineno+=f.length),this.yylloc={first_line:this.yylloc.last_line,last_line:this.yylineno+1,first_column:this.yylloc.last_column,last_column:f?f[f.length-1].length-f[f.length-1].match(/\r?\n?/)[0].length:this.yylloc.last_column+b[0].length},this.yytext+=b[0],this.match+=b[0],this.matches=b,this.yyleng=this.yytext.length,this.options.ranges&&(this.yylloc.range=[this.offset,this.offset+=this.yyleng]),this._more=!1,this._input=this._input.slice(b[0].length),this.matched+=b[0],a=this.performAction.call(this,this.yy,this,g[d],this.conditionStack[this.conditionStack.length-1]),this.done&&this._input&&(this.done=!1);if(a)return a;return}return this._input===""?this.EOF:this.parseError("Lexical error on line "+(this.yylineno+1)+". Unrecognized text.\n"+this.showPosition(),{text:"",token:null,line:this.yylineno})},lex:function(){var b=this.next();return typeof b!="undefined"?b:this.lex()},begin:function(b){this.conditionStack.push(b)},popState:function(){return this.conditionStack.pop()},_currentRules:function(){return this.conditions[this.conditionStack[this.conditionStack.length-1]].rules},topState:function(){return this.conditionStack[this.conditionStack.length-2]},pushState:function(b){this.begin(b)},options:{},performAction:function(b,c,d,e){var f=e;switch(d){case 0:return this.begin("directive"),16;case 1:return this.begin("directive"),21;case 2:return this.begin("directive"),"ELSIF";case 3:return this.begin("directive"),20;case 4:return this.begin("directive"),23;case 5:return this.begin("directive"),26;case 6:return 8;case 7:return this.begin("directive"),this.lex();case 8:return 16;case 9:return 21;case 10:return 22;case 11:return 20;case 12:return 23;case 13:return 26;case 14:return this.begin("call"),27;case 15:return 13;case 16:return 14;case 17:return this.begin("idirective"),17;case 18:return 5;case 19:return this.popState(),this.less(),this.lex();case 20:return 24;case 21:return 15;case 22:return 13;case 23:break;case 24:return 14;case 25:return 31;case 26:return 32;case 27:return this.popState(),this.popState(),18;case 28:return 17;case 29:return this.popState(),this.begin("idirective"),31;case 30:return this.popState(),this.popState(),18;case 31:return 28;case 32:return 7;case 33:return 7;case 34:return 5}},rules:[/^(?:\n *@if\b)/,/^(?:\n *@else\b)/,/^(?:\n *@elsif\b)/,/^(?:\n *@endif\b)/,/^(?:\n *@for\b)/,/^(?:\n *@endfor\b)/,/^(?:@@)/,/^(?:@)/,/^(?:if\b)/,/^(?:else\b)/,/^(?:elseif\b)/,/^(?:endif\b)/,/^(?:for\b)/,/^(?:endfor\b)/,/^(?:call\b)/,/^(?:\w+)/,/^(?:\.)/,/^(?:\()/,/^(?:$)/,/^(?:(.|\n))/,/^(?: in )/,/^(?:\d+)/,/^(?:\w+)/,/^(?:\s+)/,/^(?:\.)/,/^(?:,)/,/^(?:=)/,/^(?:\))/,/^(?:\()/,/^(?:,)/,/^(?:\))/,/^(?:[\w\.\/]+)/,/^(?:([^@]+)(?=\n\s*))/,/^(?:[^@]+)/,/^(?:$)/],conditions:{call:{rules:[28,29,30,31],inclusive:!1},idirective:{rules:[20,21,22,23,24,25,26,27],inclusive:!1},directive:{rules:[8,9,10,11,12,13,14,15,16,17,18,19],inclusive:!1},INITIAL:{rules:[0,1,2,3,4,5,6,7,32,33,34],inclusive:!0}}};return a}();return a.lexer=b,c.prototype=a,a.Parser=c,new c}();Mockle.Parser=a}),Mockle.module("Scope",[],{initialize:function(){this.layers=[]},push:function(a){this.layers.push(a)},pop:function(){this.layers.pop()},find:function(a){var b=this.layers.length;while(b--){var c=this.layers[b],d=this.lookup(a,c);if(typeof d!="undefined")return d}},lookup:function(a,b){if(typeof b!="object")return;var c=b[a];return c},partial:function(a,b){var c=this.directory.templates[a];return c.render(b)},sub:function(){var a=Mockle.Scope.create();return a.push(this.layers[0]),a.directory=this.directory,a}}),Mockle.module("Source",["mockie"],{initialize:function(){document.write("<style>*{display:none !important}</style>"),document.write('<noframes id="_mockle_tmpl">')},get:function(){return this.source||(this.source=this.fetchSelf()||"(could not extract template)"),this.source},fetchSelf:function(){var a=document.getElementById("_mockle_tmpl");if(a.innerText)return a.innerText;var b=window.ActiveXObject?new ActiveXObject("Microsoft.XMLHTTP"):new XMLHttpRequest;return b.open("GET",location.href,!1),b.send(),this.extract(b.responseText)},fetch:function(a,b){var c=this;try{if(location.protocol=="file:")throw"nope";var d=window.ActiveXObject?new ActiveXObject("Microsoft.XMLHTTP"):new XMLHttpRequest;d.open("GET",a,!0),d.onreadystatechange=function(){d.readyState==4&&(d.status!=200?b("HTTP "+d.status):b(null,c.extract(d.responseText)))},d.send()}catch(e){Mockie.request(a,"source",b)}},extract:function(a){var b=a.match(/^([\S\s]*?)<script([^>]*)>([\S\s]*?)<\/script>([\S\s]*)$/);if(b)return b[4]}}),Mockle.module("Template",["Parser"],{initialize:function(a,b){this.name=a,this.source=b,this.ast=Mockle.Parser.parse(b)},err:function(a,b){throw{template:this,msg:a,loc:b}},render:function(a){return this.evaluate(this.ast,a)},evaluate:function(a,b){switch(a.type){case"contents":var c="";for(var d=0;d<a.children.length;d++)c+=this.evaluate(a.children[d],b)||"";return c;case"html":return a.value;case"text":var e=this.evaluate(a.value,b);if(e&&!e.html_safe)return this.escape(e);return e;case"lookup":var e;return a.base?e=b.lookup(a.name,this.evaluate(a.base,b)):e=b.find(a.name),typeof e=="undefined"&&this.err("Undefined value: "+a.name,a.loc),e;case"for":var e=this.evaluate(a.expr,b);if(e&&e.length){var c="",f={};b.push(f);for(var d=0;d<e.length;d++)f[a.name]=e[d],c+=this.evaluate(a.body,b);return b.pop(),c}if(a.ebranch)return this.evaluate(a.ebranch,b);return;case"if":var g=this.evaluate(a.cond,b);if(g)return this.evaluate(a.tbranch,b);if(a.fbranch)return this.evaluate(a.fbranch,b);return;case"call":var h=b.sub(),i={};h.push(i);for(var d=0;d<a.args.length;d++){var j=a.args[d];i[j[1]]=this.evaluate(j[2],b)}return b.partial(a.name,h);default:throw"Unhandled: "+a.type}},escape:function(a){return a.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")},extractPartials:function(a,b){b=b||this.ast;switch(b.type){case"contents":for(var c=1;c<b.children.length;c++)this.extractPartials(a,b.children[c]);return;case"html":case"text":case"lookup":return;case"for":this.extractPartials(a,b.body),b.ebranch&&this.extractPartials(a,b.ebranch);return;case"if":this.extractPartials(a,b.tbranch),b.ebranch&&this.extractPartials(a,b.ebranch);return;case"call":a.require(b.name);return;default:throw"Unhandled: "+b[0]}}}),Mockle.module("TemplateDirectory",["Template"],{initialize:function(){this.pending=1,this.loading={},this.loaded={},this.templates={}},start:function(){--this.pending==0&&this.done()},load:function(){throw"load must be overriden"},define:function(a,b){this.templates[a]=b,this.loaded[a]=!0,this.loading[a]&&(this.start(),delete this.loading[a])},defineTemplate:function(a,b){var c=Mockle.Template.create(a,b);this.define(a,c),c.extractPartials(this)},require:function(a){if(this.loaded[a]||this.loading[a])return;this.loading[a]=!0,this.pending++,this.load(a)}}),Mockle.define("mockie",["JSON"],function(){(function(ctx){function parseJSON(str){try{return eval("("+str+")")}catch(err){return{}}}function escapeHTML(a){return a.replace(/&/g,"&amp;").replace(/"/g,"&quot;")}function buildFrame(a,b){var c=buildPayload(b),d=/MSIE (6|7|8|9)/.test(navigator.userAgent)?document.createElement('<iframe name="'+escapeHTML(c)+'">'):document.createElement("iframe");return d.src=a,d.name=c,d.setAttribute("style","position:absolute;top:0;left:-100px;width:1px;height:1px"),d}var prevMockie=ctx.Mockie,M=ctx.Mockie={};M.noConflict=function(){return ctx.Mockie=prevMockie,M};var namePrefix=":mockie:",buildPayload=M.buildPayload=function(a){return namePrefix+JSON.stringify(a)},scripts=document.getElementsByTagName("script"),me=M.element=scripts[scripts.length-1],par=me.parentElement;Mockie.config=parseJSON(me.innerHTML);var idx=ctx.name.search(namePrefix);if(idx==-1)M.payload={};else{var payload=ctx.name.substring(idx+namePrefix.length);M.payload=parseJSON(payload)}M.expose=function(a){if(M.payload.request){var b=M.payload.request;throw b.args.push(function(a){var c=buildFrame(b.caller+"?q=1",{id:M.payload.id,response:a});par.appendChild(c)}),a[b.name].apply(ctx,b.args),ctx.onerror=function(){return!0},""}if(M.payload.response){var c=ctx.parent.parent;c.MOCKIE_RECEIVE(M.payload.id,M.payload.response),ctx.location='javascript:""'}};var callbacks={},genId=0;ctx.MOCKIE_RECEIVE=function(a,b){callbacks[a](null,b)},M.request=function(a,b,c,d){function e(a,b){if(h)return;h=!0,delete callbacks[f],d(a,b)}d||(d=c,c=[]);var f=genId++,g={caller:ctx.location.toString(),name:b,args:c},h=!1,i=buildFrame(a,{id:f,request:g});setTimeout(function(){e("timeout")},3e3),callbacks[f]=e,par.appendChild(i)}})(this)}),Mockle.define("JSON",[],function(){typeof JSON!="object"&&(JSON={}),function(){function f(a){return a<10?"0"+a:a}function quote(a){return escapable.lastIndex=0,escapable.test(a)?'"'+a.replace(escapable,function(a){var b=meta[a];return typeof b=="string"?b:"\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4)})+'"':'"'+a+'"'}function str(a,b){var c,d,e,f,g=gap,h,i=b[a];i&&typeof i=="object"&&typeof i.toJSON=="function"&&(i=i.toJSON(a)),typeof rep=="function"&&(i=rep.call(b,a,i));switch(typeof i){case"string":return quote(i);case"number":return isFinite(i)?String(i):"null";case"boolean":case"null":return String(i);case"object":if(!i)return"null";gap+=indent,h=[];if(Object.prototype.toString.apply(i)==="[object Array]"){f=i.length;for(c=0;c<f;c+=1)h[c]=str(c,i)||"null";return e=h.length===0?"[]":gap?"[\n"+gap+h.join(",\n"+gap)+"\n"+g+"]":"["+h.join(",")+"]",gap=g,e}if(rep&&typeof rep=="object"){f=rep.length;for(c=0;c<f;c+=1)typeof rep[c]=="string"&&(d=rep[c],e=str(d,i),e&&h.push(quote(d)+(gap?": ":":")+e))}else for(d in i)Object.prototype.hasOwnProperty.call(i,d)&&(e=str(d,i),e&&h.push(quote(d)+(gap?": ":":")+e));return e=h.length===0?"{}":gap?"{\n"+gap+h.join(",\n"+gap)+"\n"+g+"}":"{"+h.join(",")+"}",gap=g,e}}"use strict",typeof Date.prototype.toJSON!="function"&&(Date.prototype.toJSON=function(a){return isFinite(this.valueOf())?this.getUTCFullYear()+"-"+f(this.getUTCMonth()+1)+"-"+f(this.getUTCDate())+"T"+f(this.getUTCHours())+":"+f(this.getUTCMinutes())+":"+f(this.getUTCSeconds())+"Z":null},String.prototype.toJSON=Number.prototype.toJSON=Boolean.prototype.toJSON=function(a){return this.valueOf()});var cx=/[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,escapable=/[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,gap,indent,meta={"\b":"\\b","\t":"\\t","\n":"\\n","\f":"\\f","\r":"\\r",'"':'\\"',"\\":"\\\\"},rep;typeof JSON.stringify!="function"&&(JSON.stringify=function(a,b,c){var d;gap="",indent="";if(typeof c=="number")for(d=0;d<c;d+=1)indent+=" ";else typeof c=="string"&&(indent=c);rep=b;if(!b||typeof b=="function"||typeof b=="object"&&typeof b.length=="number")return str("",{"":a});throw new Error("JSON.stringify")}),typeof JSON.parse!="function"&&(JSON.parse=function(text,reviver){function walk(a,b){var c,d,e=a[b];if(e&&typeof e=="object")for(c in e)Object.prototype.hasOwnProperty.call(e,c)&&(d=walk(e,c),d!==undefined?e[c]=d:delete e[c]);return reviver.call(a,b,e)}var j;text=String(text),cx.lastIndex=0,cx.test(text)&&(text=text.replace(cx,function(a){return"\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4)}));if(/^[\],:{}\s]*$/.test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,"@").replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,"]").replace(/(?:^|:|,)(?:\s*\[)+/g,"")))return j=eval("("+text+")"),typeof reviver=="function"?walk({"":j},""):j;throw new SyntaxError("JSON.parse")})}()}),Mockle.module("Browser",["mockie","Source","Template","Scope","TemplateDirectory"],{setup:function(){Mockie.expose({source:function(a){var b=Mockle.Source.create(),c=!0;window.onload=function(){a(b.get())}}});var a=Mockie.element;this.data={},this.defs={},this.root=a.src.replace(/(^|\/)[^\/]+$/,"$1"),this.name=location.toString().substring(this.root.length),this.scriptCounter=0,this.configs=[];var b=this;Mockle.loadedScript=function(){b.loadedScript()},Mockle.include=function(a){b.include(a)},Mockle.config=function(a){b.configs.push(a)},this.include("mockle.config.js"),window.onload=function(){var a;while(a=b.configs.shift())a(b);Mockie.config.set&&b.merge(Mockie.config.set);var c=Mockie.config.use;c&&(c=c.split(" "));for(var d=0;c&&d<c.length;d++){var e=b.defs[c[d]]();e&&b.merge(e)}b.start()}},path:function(a){return this.root+a},loadedScript:function(){--this.scriptCounter==0&&(this.source=Mockle.Source.create())},include:function(a){this.scriptCounter++,document.write('<script src="'+this.escapeHTML(this.path(a))+'"></script>'),document.write("<script>Mockle.loadedScript()</script>")},defaults:function(a){this.merge(a)},merge:function(a){for(var b in a)a.hasOwnProperty(b)&&(this.data[b]=a[b])},define:function(a,b){if(typeof b!="function"){var c=this,d=b;b=function(){c.merge(d)}}this.defs[a]=b},html:function(a){var b=Object(a);return b.html_safe=!0,b},start:function(){var a=this,b=Mockie.config.layout,c=Mockle.TemplateDirectory.create();c.load=function(b){a.source.fetch(b,function(a,d){if(a)return alert(b+" failed: "+a);c.defineTemplate(b,d)})},c.done=function(){a.process(a.name,c,b)},b&&c.require(b),c.defineTemplate(a.name,a.source.get()),c.start()},process:function(a,b,c){var d=Mockle.Scope.create();d.directory=b,d.push(this.data);var e=b.templates[a];try{var f=e.render(d);c&&(d.push({content:this.html(f)}),f=b.templates[c].render(d))}catch(g){f=this.reportError(g.template,g.msg,g.loc)}this.write(f)},reportError:function(a,b,c){var d="<style>.error { background-color: #FF6B6B;padding: 5px 10px;} .no { float: left; width: 10px; padding: 0 20px; text-align: right; color: #999 }.line { clear: both; line-height: 1.5; height: 1.5em; border-bottom: 1px solid #eee }</style>",e='<div class="line">',f="</div>",g=f+e,h=d+"<pre>"+a.name+"<br>",i=a.source.split("\n");for(var j=0;j<i.length;j++){var k=i[j],l=j+1;h+=e+'<div class="no">'+l+"</div>",h+=this.escapeHTML(k),h+=f,c.first_line==l&&(h+=e+'<div class="no">&nbsp;</div>',h+=Array(c.first_column).join("&nbsp;"),h+='<span class="error">'+b+"</span>",h+=f)}return h},escapeHTML:function(a){return a.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")},write:function(a){setTimeout(function(){document.open(),document.write("<!DOCTYPE html>"+a),document.close()})}});
+(function() {
+  var dep;
+  // dep.js
+  (dep=function(a){function e(b){var d=c[b];d?(c[b]=0,d()):a.load&&a.load(b)}var b=a.loaded={},c={},d={};return a.use=function(a,c){typeof a=="string"&&(a=[a]);var f=a.length+1,g,h=function(){--f==0&&c&&c()};h();while(g=a.shift())b[g]?h():((d[g]||(d[g]=[])).push(h),e(g))},a.define=function(f,g,h){c[f]=function(){a.use(g||[],function(){var a,c=d[f];b[f]=1,h&&h();while(a=c&&c.shift())a()})},d[f]&&e(f)},a})(dep);
+
+  var Mockle = this.Mockle = dep({});
+
+  Mockle.module = function(name, deps, def) {
+    Mockle.define(name, deps, function() {
+      function init() { };
+      init.prototype = def;
+
+      def.create = function() {
+        var obj = new init;
+        if (obj.initialize) obj.initialize.apply(obj, arguments);
+        return obj;
+      };
+
+      Mockle[name] = def;
+    });
+
+    if (def.setup) {
+      Mockle.use(name, function() { def.setup() });
+    }
+  };
+}).call(this);
+
+
+Mockle.define("Parser", [], function() {/* parser generated by jison 0.4.2 */
+var parser = (function(){
+var parser = {trace: function trace() { },
+yy: {},
+symbols_: {"error":2,"main":3,"contents":4,"EOF":5,"content":6,"TEXT":7,"ATCHAR":8,"expr":9,"if":10,"for":11,"call":12,"IDENT":13,"DOT":14,"NUMBER":15,"IF":16,"LPAREN":17,"RPAREN":18,"if_end":19,"ENDIF":20,"ELSE":21,"ELSEIF":22,"FOR":23,"IN":24,"for_end":25,"ENDFOR":26,"CALL":27,"CNAME":28,"arglist":29,"arg":30,"COMMA":31,"EQ":32,"$accept":0,"$end":1},
+terminals_: {2:"error",5:"EOF",7:"TEXT",8:"ATCHAR",13:"IDENT",14:"DOT",15:"NUMBER",16:"IF",17:"LPAREN",18:"RPAREN",20:"ENDIF",21:"ELSE",22:"ELSEIF",23:"FOR",24:"IN",26:"ENDFOR",27:"CALL",28:"CNAME",31:"COMMA",32:"EQ"},
+productions_: [0,[3,2],[4,1],[4,2],[6,1],[6,1],[6,1],[6,1],[6,1],[6,1],[9,1],[9,3],[9,1],[10,6],[19,1],[19,3],[19,6],[11,8],[25,1],[25,3],[12,5],[12,4],[30,2],[30,4],[29,1],[29,2]],
+performAction: function anonymous(yytext,yyleng,yylineno,yy,yystate,$$,_$) {
+
+var $0 = $$.length - 1;
+switch (yystate) {
+case 1: return $$[$0-1] 
+break;
+case 2:this.$ = {type: 'contents', children: [$$[$0]]};
+break;
+case 3:this.$ = ($$[$0-1].children.push($$[$0]), $$[$0-1]);
+break;
+case 4:this.$ = {type: 'html', value: $$[$0]};
+break;
+case 5:this.$ = {type: 'html', value: '@'};
+break;
+case 6:this.$ = {type: 'text', value: $$[$0]};
+break;
+case 7:this.$ = $$[$0];
+break;
+case 8:this.$ = $$[$0];
+break;
+case 9:this.$ = $$[$0];
+break;
+case 10:this.$ = {type: 'lookup', loc: this._$, name: $$[$0]};
+break;
+case 11:this.$ = {type: 'lookup', loc: _$[$0], name: $$[$0], base: $$[$0-2]};
+break;
+case 12:this.$ = {type: 'number', value: $$[$0]};
+break;
+case 13: this.$ = {type: 'if', cond: $$[$0-3], tbranch: $$[$0-1], fbranch: $$[$0]} 
+break;
+case 14:this.$ = null;
+break;
+case 15:this.$ = $$[$0-1];
+break;
+case 16: this.$ = {type: 'if', cond: $$[$0-3], tbranch: $$[$0-1], fbranch: $$[$0]} 
+break;
+case 17: this.$ = {type: 'for', name: $$[$0-5], expr: $$[$0-3], body: $$[$0-1], ebranch: $$[$0]} 
+break;
+case 18:this.$ = null;
+break;
+case 19:this.$ = $$[$0-1];
+break;
+case 20: this.$ = {type: 'call', loc: this._$, name: $$[$0-2], args: $$[$0-1]} 
+break;
+case 21: this.$ = {type: 'call', loc: this._$, name: $$[$0-1], args: []} 
+break;
+case 22:this.$ = ['argsplat', $$[$0]];
+break;
+case 23:this.$ = ['arg', $$[$0-2], $$[$0]];
+break;
+case 24:this.$ = [$$[$0]];
+break;
+case 25:this.$ = ($$[$0-1].push($$[$0]), $$[$0-1]);
+break;
+}
+},
+table: [{3:1,4:2,6:3,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],27:[1,14]},{1:[3]},{5:[1,15],6:16,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],27:[1,14]},{5:[2,2],7:[2,2],8:[2,2],13:[2,2],15:[2,2],16:[2,2],20:[2,2],21:[2,2],22:[2,2],23:[2,2],26:[2,2],27:[2,2]},{5:[2,4],7:[2,4],8:[2,4],13:[2,4],15:[2,4],16:[2,4],20:[2,4],21:[2,4],22:[2,4],23:[2,4],26:[2,4],27:[2,4]},{5:[2,5],7:[2,5],8:[2,5],13:[2,5],15:[2,5],16:[2,5],20:[2,5],21:[2,5],22:[2,5],23:[2,5],26:[2,5],27:[2,5]},{5:[2,6],7:[2,6],8:[2,6],13:[2,6],14:[1,17],15:[2,6],16:[2,6],20:[2,6],21:[2,6],22:[2,6],23:[2,6],26:[2,6],27:[2,6]},{5:[2,7],7:[2,7],8:[2,7],13:[2,7],15:[2,7],16:[2,7],20:[2,7],21:[2,7],22:[2,7],23:[2,7],26:[2,7],27:[2,7]},{5:[2,8],7:[2,8],8:[2,8],13:[2,8],15:[2,8],16:[2,8],20:[2,8],21:[2,8],22:[2,8],23:[2,8],26:[2,8],27:[2,8]},{5:[2,9],7:[2,9],8:[2,9],13:[2,9],15:[2,9],16:[2,9],20:[2,9],21:[2,9],22:[2,9],23:[2,9],26:[2,9],27:[2,9]},{5:[2,10],7:[2,10],8:[2,10],13:[2,10],14:[2,10],15:[2,10],16:[2,10],18:[2,10],20:[2,10],21:[2,10],22:[2,10],23:[2,10],26:[2,10],27:[2,10],31:[2,10]},{5:[2,12],7:[2,12],8:[2,12],13:[2,12],14:[2,12],15:[2,12],16:[2,12],18:[2,12],20:[2,12],21:[2,12],22:[2,12],23:[2,12],26:[2,12],27:[2,12],31:[2,12]},{17:[1,18]},{17:[1,19]},{17:[1,20]},{1:[2,1]},{5:[2,3],7:[2,3],8:[2,3],13:[2,3],15:[2,3],16:[2,3],20:[2,3],21:[2,3],22:[2,3],23:[2,3],26:[2,3],27:[2,3]},{13:[1,21]},{9:22,13:[1,10],15:[1,11]},{13:[1,23]},{28:[1,24]},{5:[2,11],7:[2,11],8:[2,11],13:[2,11],14:[2,11],15:[2,11],16:[2,11],18:[2,11],20:[2,11],21:[2,11],22:[2,11],23:[2,11],26:[2,11],27:[2,11],31:[2,11]},{14:[1,17],18:[1,25]},{24:[1,26]},{18:[1,28],29:27,30:29,31:[1,30]},{4:31,6:3,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],27:[1,14]},{9:32,13:[1,10],15:[1,11]},{18:[1,33],30:34,31:[1,30]},{5:[2,21],7:[2,21],8:[2,21],13:[2,21],15:[2,21],16:[2,21],20:[2,21],21:[2,21],22:[2,21],23:[2,21],26:[2,21],27:[2,21]},{18:[2,24],31:[2,24]},{9:35,13:[1,36],15:[1,11]},{6:16,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],19:37,20:[1,38],21:[1,39],22:[1,40],23:[1,13],27:[1,14]},{14:[1,17],18:[1,41]},{5:[2,20],7:[2,20],8:[2,20],13:[2,20],15:[2,20],16:[2,20],20:[2,20],21:[2,20],22:[2,20],23:[2,20],26:[2,20],27:[2,20]},{18:[2,25],31:[2,25]},{14:[1,17],18:[2,22],31:[2,22]},{14:[2,10],18:[2,10],31:[2,10],32:[1,42]},{5:[2,13],7:[2,13],8:[2,13],13:[2,13],15:[2,13],16:[2,13],20:[2,13],21:[2,13],22:[2,13],23:[2,13],26:[2,13],27:[2,13]},{5:[2,14],7:[2,14],8:[2,14],13:[2,14],15:[2,14],16:[2,14],20:[2,14],21:[2,14],22:[2,14],23:[2,14],26:[2,14],27:[2,14]},{4:43,6:3,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],27:[1,14]},{17:[1,44]},{4:45,6:3,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],27:[1,14]},{9:46,13:[1,10],15:[1,11]},{6:16,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],20:[1,47],23:[1,13],27:[1,14]},{9:48,13:[1,10],15:[1,11]},{6:16,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],21:[1,51],23:[1,13],25:49,26:[1,50],27:[1,14]},{14:[1,17],18:[2,23],31:[2,23]},{5:[2,15],7:[2,15],8:[2,15],13:[2,15],15:[2,15],16:[2,15],20:[2,15],21:[2,15],22:[2,15],23:[2,15],26:[2,15],27:[2,15]},{14:[1,17],18:[1,52]},{5:[2,17],7:[2,17],8:[2,17],13:[2,17],15:[2,17],16:[2,17],20:[2,17],21:[2,17],22:[2,17],23:[2,17],26:[2,17],27:[2,17]},{5:[2,18],7:[2,18],8:[2,18],13:[2,18],15:[2,18],16:[2,18],20:[2,18],21:[2,18],22:[2,18],23:[2,18],26:[2,18],27:[2,18]},{4:53,6:3,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],27:[1,14]},{4:54,6:3,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],27:[1,14]},{6:16,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],23:[1,13],26:[1,55],27:[1,14]},{6:16,7:[1,4],8:[1,5],9:6,10:7,11:8,12:9,13:[1,10],15:[1,11],16:[1,12],19:56,20:[1,38],21:[1,39],22:[1,40],23:[1,13],27:[1,14]},{5:[2,19],7:[2,19],8:[2,19],13:[2,19],15:[2,19],16:[2,19],20:[2,19],21:[2,19],22:[2,19],23:[2,19],26:[2,19],27:[2,19]},{5:[2,16],7:[2,16],8:[2,16],13:[2,16],15:[2,16],16:[2,16],20:[2,16],21:[2,16],22:[2,16],23:[2,16],26:[2,16],27:[2,16]}],
+defaultActions: {15:[2,1]},
+parseError: function parseError(str, hash) {
+    throw new Error(str);
+},
+parse: function parse(input) {
+    var self = this, stack = [0], vstack = [null], lstack = [], table = this.table, yytext = "", yylineno = 0, yyleng = 0, recovering = 0, TERROR = 2, EOF = 1;
+    this.lexer.setInput(input);
+    this.lexer.yy = this.yy;
+    this.yy.lexer = this.lexer;
+    this.yy.parser = this;
+    if (typeof this.lexer.yylloc == "undefined")
+        this.lexer.yylloc = {};
+    var yyloc = this.lexer.yylloc;
+    lstack.push(yyloc);
+    var ranges = this.lexer.options && this.lexer.options.ranges;
+    if (typeof this.yy.parseError === "function")
+        this.parseError = this.yy.parseError;
+    function popStack(n) {
+        stack.length = stack.length - 2 * n;
+        vstack.length = vstack.length - n;
+        lstack.length = lstack.length - n;
+    }
+    function lex() {
+        var token;
+        token = self.lexer.lex() || 1;
+        if (typeof token !== "number") {
+            token = self.symbols_[token] || token;
+        }
+        return token;
+    }
+    var symbol, preErrorSymbol, state, action, a, r, yyval = {}, p, len, newState, expected;
+    while (true) {
+        state = stack[stack.length - 1];
+        if (this.defaultActions[state]) {
+            action = this.defaultActions[state];
+        } else {
+            if (symbol === null || typeof symbol == "undefined") {
+                symbol = lex();
+            }
+            action = table[state] && table[state][symbol];
+        }
+        if (typeof action === "undefined" || !action.length || !action[0]) {
+            var errStr = "";
+            if (!recovering) {
+                expected = [];
+                for (p in table[state])
+                    if (this.terminals_[p] && p > 2) {
+                        expected.push("'" + this.terminals_[p] + "'");
+                    }
+                if (this.lexer.showPosition) {
+                    errStr = "Parse error on line " + (yylineno + 1) + ":\n" + this.lexer.showPosition() + "\nExpecting " + expected.join(", ") + ", got '" + (this.terminals_[symbol] || symbol) + "'";
+                } else {
+                    errStr = "Parse error on line " + (yylineno + 1) + ": Unexpected " + (symbol == 1?"end of input":"'" + (this.terminals_[symbol] || symbol) + "'");
+                }
+                this.parseError(errStr, {text: this.lexer.match, token: this.terminals_[symbol] || symbol, line: this.lexer.yylineno, loc: yyloc, expected: expected});
+            }
+        }
+        if (action[0] instanceof Array && action.length > 1) {
+            throw new Error("Parse Error: multiple actions possible at state: " + state + ", token: " + symbol);
+        }
+        switch (action[0]) {
+        case 1:
+            stack.push(symbol);
+            vstack.push(this.lexer.yytext);
+            lstack.push(this.lexer.yylloc);
+            stack.push(action[1]);
+            symbol = null;
+            if (!preErrorSymbol) {
+                yyleng = this.lexer.yyleng;
+                yytext = this.lexer.yytext;
+                yylineno = this.lexer.yylineno;
+                yyloc = this.lexer.yylloc;
+                if (recovering > 0)
+                    recovering--;
+            } else {
+                symbol = preErrorSymbol;
+                preErrorSymbol = null;
+            }
+            break;
+        case 2:
+            len = this.productions_[action[1]][1];
+            yyval.$ = vstack[vstack.length - len];
+            yyval._$ = {first_line: lstack[lstack.length - (len || 1)].first_line, last_line: lstack[lstack.length - 1].last_line, first_column: lstack[lstack.length - (len || 1)].first_column, last_column: lstack[lstack.length - 1].last_column};
+            if (ranges) {
+                yyval._$.range = [lstack[lstack.length - (len || 1)].range[0], lstack[lstack.length - 1].range[1]];
+            }
+            r = this.performAction.call(yyval, yytext, yyleng, yylineno, this.yy, action[1], vstack, lstack);
+            if (typeof r !== "undefined") {
+                return r;
+            }
+            if (len) {
+                stack = stack.slice(0, -1 * len * 2);
+                vstack = vstack.slice(0, -1 * len);
+                lstack = lstack.slice(0, -1 * len);
+            }
+            stack.push(this.productions_[action[1]][0]);
+            vstack.push(yyval.$);
+            lstack.push(yyval._$);
+            newState = table[stack[stack.length - 2]][stack[stack.length - 1]];
+            stack.push(newState);
+            break;
+        case 3:
+            return true;
+        }
+    }
+    return true;
+}
+};
+/* generated by jison-lex 0.1.0 */
+var lexer = (function(){
+var lexer = {
+EOF:1,
+parseError:function parseError(str, hash) {
+        if (this.yy.parser) {
+            this.yy.parser.parseError(str, hash);
+        } else {
+            throw new Error(str);
+        }
+    },
+setInput:function (input) {
+        this._input = input;
+        this._more = this._less = this.done = false;
+        this.yylineno = this.yyleng = 0;
+        this.yytext = this.matched = this.match = '';
+        this.conditionStack = ['INITIAL'];
+        this.yylloc = {first_line:1,first_column:0,last_line:1,last_column:0};
+        if (this.options.ranges) this.yylloc.range = [0,0];
+        this.offset = 0;
+        return this;
+    },
+input:function () {
+        var ch = this._input[0];
+        this.yytext += ch;
+        this.yyleng++;
+        this.offset++;
+        this.match += ch;
+        this.matched += ch;
+        var lines = ch.match(/(?:\r\n?|\n).*/g);
+        if (lines) {
+            this.yylineno++;
+            this.yylloc.last_line++;
+        } else {
+            this.yylloc.last_column++;
+        }
+        if (this.options.ranges) this.yylloc.range[1]++;
+
+        this._input = this._input.slice(1);
+        return ch;
+    },
+unput:function (ch) {
+        var len = ch.length;
+        var lines = ch.split(/(?:\r\n?|\n)/g);
+ if (!lines.length) lines = ["",""];
+
+        this._input = ch + this._input;
+        this.yytext = this.yytext.substr(0, this.yytext.length-len-1);
+        //this.yyleng -= len;
+        this.offset -= len;
+        var oldLines = this.match.split(/(?:\r\n?|\n)/g);
+ if (!oldLines.length) oldLines = ["",""];
+        this.match = this.match.substr(0, this.match.length-1);
+        this.matched = this.matched.substr(0, this.matched.length-1);
+
+        if (lines.length-1) this.yylineno -= lines.length-1;
+        var r = this.yylloc.range;
+
+        this.yylloc = {first_line: this.yylloc.first_line,
+          last_line: this.yylineno+1,
+          first_column: this.yylloc.first_column,
+          last_column: lines ?
+              (lines.length === oldLines.length ? this.yylloc.first_column : 0) + oldLines[oldLines.length - lines.length].length - lines[0].length:
+              this.yylloc.first_column - len
+          };
+
+        if (this.options.ranges) {
+            this.yylloc.range = [r[0], r[0] + this.yyleng - len];
+        }
+        return this;
+    },
+more:function () {
+        this._more = true;
+        return this;
+    },
+less:function (n) {
+        this.unput(this.match.slice(n));
+    },
+pastInput:function () {
+        var past = this.matched.substr(0, this.matched.length - this.match.length);
+        return (past.length > 20 ? '...':'') + past.substr(-20).replace(/\n/g, "");
+    },
+upcomingInput:function () {
+        var next = this.match;
+        if (next.length < 20) {
+            next += this._input.substr(0, 20-next.length);
+        }
+        return (next.substr(0,20)+(next.length > 20 ? '...':'')).replace(/\n/g, "");
+    },
+showPosition:function () {
+        var pre = this.pastInput();
+        var c = new Array(pre.length + 1).join("-");
+        return pre + this.upcomingInput() + "\n" + c+"^";
+    },
+next:function () {
+        if (this.done) {
+            return this.EOF;
+        }
+        if (!this._input) this.done = true;
+
+        var token,
+            match,
+            tempMatch,
+            index,
+            col,
+            lines;
+        if (!this._more) {
+            this.yytext = '';
+            this.match = '';
+        }
+        var rules = this._currentRules();
+        for (var i=0;i < rules.length; i++) {
+            tempMatch = this._input.match(this.rules[rules[i]]);
+            if (tempMatch && (!match || tempMatch[0].length > match[0].length)) {
+                match = tempMatch;
+                index = i;
+                if (!this.options.flex) break;
+            }
+        }
+        if (match) {
+            lines = match[0].match(/(?:\r\n?|\n).*/g);
+            if (lines) this.yylineno += lines.length;
+            this.yylloc = {first_line: this.yylloc.last_line,
+                           last_line: this.yylineno+1,
+                           first_column: this.yylloc.last_column,
+                           last_column: lines ? lines[lines.length-1].length-lines[lines.length-1].match(/\r?\n?/)[0].length : this.yylloc.last_column + match[0].length};
+            this.yytext += match[0];
+            this.match += match[0];
+            this.matches = match;
+            this.yyleng = this.yytext.length;
+            if (this.options.ranges) {
+                this.yylloc.range = [this.offset, this.offset += this.yyleng];
+            }
+            this._more = false;
+            this._input = this._input.slice(match[0].length);
+            this.matched += match[0];
+            token = this.performAction.call(this, this.yy, this, rules[index],this.conditionStack[this.conditionStack.length-1]);
+            if (this.done && this._input) this.done = false;
+            if (token) return token;
+            else return;
+        }
+        if (this._input === "") {
+            return this.EOF;
+        } else {
+            return this.parseError('Lexical error on line '+(this.yylineno+1)+'. Unrecognized text.\n'+this.showPosition(),
+                    {text: "", token: null, line: this.yylineno});
+        }
+    },
+lex:function lex() {
+        var r = this.next();
+        if (typeof r !== 'undefined') {
+            return r;
+        } else {
+            return this.lex();
+        }
+    },
+begin:function begin(condition) {
+        this.conditionStack.push(condition);
+    },
+popState:function popState() {
+        return this.conditionStack.pop();
+    },
+_currentRules:function _currentRules() {
+        return this.conditions[this.conditionStack[this.conditionStack.length-1]].rules;
+    },
+topState:function () {
+        return this.conditionStack[this.conditionStack.length-2];
+    },
+pushState:function begin(condition) {
+        this.begin(condition);
+    },
+options: {},
+performAction: function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
+
+var YYSTATE=YY_START;
+switch($avoiding_name_collisions) {
+case 0:this.begin('directive'); return 16;
+break;
+case 1:this.begin('directive'); return 21;
+break;
+case 2:this.begin('directive'); return 'ELSIF';
+break;
+case 3:this.begin('directive'); return 20;
+break;
+case 4:this.begin('directive'); return 23;
+break;
+case 5:this.begin('directive'); return 26;
+break;
+case 6:return 8;
+break;
+case 7:this.begin('directive'); return this.lex();
+break;
+case 8:return 16;
+break;
+case 9:return 21;
+break;
+case 10:return 22;
+break;
+case 11:return 20;
+break;
+case 12:return 23;
+break;
+case 13:return 26;
+break;
+case 14:this.begin('call'); return 27;
+break;
+case 15:return 13;
+break;
+case 16:return 14;
+break;
+case 17:this.begin('idirective'); return 17;
+break;
+case 18:return 5;
+break;
+case 19:
+    this.popState();
+    this.less();
+    return this.lex();
+  
+break;
+case 20:return 24;
+break;
+case 21:return 15;
+break;
+case 22:return 13;
+break;
+case 23:/* skip */
+break;
+case 24:return 14;
+break;
+case 25:return 31;
+break;
+case 26:return 32;
+break;
+case 27:this.popState(); this.popState(); return 18;
+break;
+case 28:return 17;
+break;
+case 29:this.popState(); this.begin('idirective'); return 31;
+break;
+case 30:this.popState(); this.popState(); return 18;
+break;
+case 31:return 28;
+break;
+case 32:return 7;
+break;
+case 33:return 7;
+break;
+case 34:return 5;
+break;
+}
+},
+rules: [/^(?:\n *@if\b)/,/^(?:\n *@else\b)/,/^(?:\n *@elsif\b)/,/^(?:\n *@endif\b)/,/^(?:\n *@for\b)/,/^(?:\n *@endfor\b)/,/^(?:@@)/,/^(?:@)/,/^(?:if\b)/,/^(?:else\b)/,/^(?:elseif\b)/,/^(?:endif\b)/,/^(?:for\b)/,/^(?:endfor\b)/,/^(?:call\b)/,/^(?:\w+)/,/^(?:\.)/,/^(?:\()/,/^(?:$)/,/^(?:(.|\n))/,/^(?: in )/,/^(?:\d+)/,/^(?:\w+)/,/^(?:\s+)/,/^(?:\.)/,/^(?:,)/,/^(?:=)/,/^(?:\))/,/^(?:\()/,/^(?:,)/,/^(?:\))/,/^(?:[\w\.\/]+)/,/^(?:([^@]+)(?=\n\s*))/,/^(?:[^@]+)/,/^(?:$)/],
+conditions: {"call":{"rules":[28,29,30,31],"inclusive":false},"idirective":{"rules":[20,21,22,23,24,25,26,27],"inclusive":false},"directive":{"rules":[8,9,10,11,12,13,14,15,16,17,18,19],"inclusive":false},"INITIAL":{"rules":[0,1,2,3,4,5,6,7,32,33,34],"inclusive":true}}
+};
+return lexer;
+})();
+parser.lexer = lexer;
+function Parser () { this.yy = {}; }Parser.prototype = parser;parser.Parser = Parser;
+return new Parser;
+})();Mockle.Parser = parser });
+Mockle.module('Scope', [], {
+  initialize: function() {
+    this.layers = [];
+  },
+
+  push: function(value) {
+    this.layers.push(value);
+  },
+
+  pop: function() {
+    this.layers.pop();
+  },
+
+  find: function(name) {
+    var levels = this.layers.length;
+
+    while (levels--) {
+      var obj = this.layers[levels];
+      var value = this.lookup(name, obj);
+      if (typeof value != 'undefined') return value;
+    }
+  },
+
+  lookup: function(name, base) {
+    if (typeof base != 'object') return;
+    var value = base[name];
+    return value;
+  },
+
+  partial: function(name, scope) {
+    var tmpl = this.directory.templates[name];
+    return tmpl.render(scope);
+  },
+
+  sub: function() {
+    var sub = Mockle.Scope.create();
+    sub.push(this.layers[0]);
+    sub.directory = this.directory;
+    return sub;
+  }
+});
+
+
+Mockle.module('Source', ['mockie'], {
+  initialize: function() {
+    document.write('<style>*{display:none !important}</style>');
+    document.write('<noframes id="_mockle_tmpl">');
+  },
+
+  get: function() {
+    if (!this.source) this.source = this.fetchSelf() || '(could not extract template)';
+    return this.source;
+  },
+
+  fetchSelf: function() {
+    var frame = document.getElementById('_mockle_tmpl');
+    if (frame.innerText) return frame.innerText;
+
+    var req = window.ActiveXObject
+      ? new ActiveXObject('Microsoft.XMLHTTP')
+      : new XMLHttpRequest();
+
+    req.open("GET", location.href, false);
+    req.send();
+    return this.extract(req.responseText);
+  },
+
+  fetch: function(src, cb) {
+    var me = this;
+
+    try {
+      if (location.protocol == "file:") throw "nope";
+
+      var req = window.ActiveXObject
+        ? new ActiveXObject('Microsoft.XMLHTTP')
+        : new XMLHttpRequest();
+
+      req.open("GET", src, true);
+      req.onreadystatechange = function() {
+        if (req.readyState == 4) {
+          if (req.status != 200) {
+            cb("HTTP " + req.status);
+          } else {
+            cb(null, me.extract(req.responseText));
+          }
+        }
+      }
+      req.send();
+    } catch (err) {
+      Mockie.request(src, 'source', cb);
+    }
+  },
+
+  extract: function(text) {
+    var match = text.match(/^([\S\s]*?)<script([^>]*)>([\S\s]*?)<\/script>([\S\s]*)$/);
+    if (match) {
+      return match[4];
+    }
+  }
+});
+
+
+Mockle.module('Template', ['Parser'], {
+  initialize: function(name, source) {
+    this.name = name;
+    this.source = source;
+  },
+
+  parse: function() {
+    var me = this;
+
+    Mockle.Parser.parseError = function(str, data) {
+      var loc = {
+        first_line: data.loc.last_line,
+        first_column: data.loc.last_column
+      }
+      me.err('Syntax error', loc);
+    };
+
+    this.ast = Mockle.Parser.parse(this.source);
+  },
+
+  err: function(msg, loc) {
+    throw {template: this, msg: msg, loc: loc};
+  },
+
+  render: function(scope) {
+    return this.evaluate(this.ast, scope);
+  },
+
+  evaluate: function(ast, scope) {
+    switch (ast.type) {
+      case 'contents':
+        var res = "";
+        for (var i = 0; i < ast.children.length; i++) {
+          res += this.evaluate(ast.children[i], scope) || '';
+        }
+        return res;
+
+      case 'html':
+        return ast.value;
+
+      case 'text':
+        var value = this.evaluate(ast.value, scope);
+        if (value && !value.html_safe) {
+          return this.escape(value);
+        }
+        return value;
+
+      case 'lookup':
+        var value;
+        if (ast.base) {
+          value = scope.lookup(ast.name, this.evaluate(ast.base, scope));
+        } else {
+          value = scope.find(ast.name);
+        }
+
+        if (typeof value == 'undefined') {
+          this.err("Undefined value: "+ast.name, ast.loc);
+        }
+
+        return value;
+
+      case 'for':
+        var value = this.evaluate(ast.expr, scope);
+        if (value && value.length) {
+          var res = "", env = {};
+          scope.push(env);
+          for (var i = 0; i < value.length; i++) {
+            env[ast.name] = value[i];
+            res += this.evaluate(ast.body, scope);
+          }
+          scope.pop();
+          return res;
+        }
+
+        if (ast.ebranch) {
+          return this.evaluate(ast.ebranch, scope);
+        }
+
+        return;
+
+      case 'if':
+        var cond = this.evaluate(ast.cond, scope);
+        if (cond) {
+          return this.evaluate(ast.tbranch, scope);
+        }
+
+        if (ast.fbranch) {
+          return this.evaluate(ast.fbranch, scope);
+        }
+
+        return;
+
+      case 'call':
+        var sub = scope.sub();
+        var locals = {};
+        sub.push(locals);
+        for (var i = 0; i < ast.args.length; i++) {
+          var arg = ast.args[i];
+          locals[arg[1]] = this.evaluate(arg[2], scope);
+        }
+        return scope.partial(ast.name, sub);
+      
+      default:
+        throw 'Unhandled: ' + ast.type;
+    }
+  },
+
+  escape: function(str) {
+    return str
+      .replace(/&/g,'&amp;')
+      .replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;')
+      .replace(/"/g, '&quot;');
+  },
+
+  extractPartials: function(dir, ast) {
+    ast = ast || this.ast;
+
+    switch (ast.type) {
+      case 'contents':
+        for (var i = 1; i < ast.children.length; i++) {
+          this.extractPartials(dir, ast.children[i]);
+        }
+        return;
+
+      case 'html':
+      case 'text':
+      case 'lookup':
+        return;
+
+      case 'for':
+        this.extractPartials(dir, ast.body);
+        if (ast.ebranch) {
+          this.extractPartials(dir, ast.ebranch);
+        }
+        return;
+
+      case 'if':
+        this.extractPartials(dir, ast.tbranch);
+
+        if (ast.ebranch) {
+          this.extractPartials(dir, ast.ebranch);
+        }
+
+        return;
+
+      case 'call':
+        dir.require(ast.name);
+        return;
+      
+      default:
+        throw 'Unhandled: ' + ast[0];
+    }
+  }
+});
+
+
+
+Mockle.module('TemplateDirectory', ['Template'], {
+  initialize: function() {
+    this.pending = 1;
+    this.loading = {};
+    this.loaded = {};
+    this.templates = {};
+  },
+
+  start: function() {
+    if (--this.pending == 0) this.done();
+  },
+
+  load: function() {
+    throw "load must be overriden";
+  },
+
+  define: function(name, template) {
+    this.templates[name] = template;
+    this.loaded[name] = true;
+
+    if (this.loading[name]) {
+      this.start();
+      delete this.loading[name];
+    }
+  },
+
+  defineTemplate: function(name, source) {
+    var tmpl = Mockle.Template.create(name, source);
+
+    try {
+      tmpl.parse();
+    } catch (err) {
+      this.error(err);
+      return;
+    }
+
+    tmpl.extractPartials(this);
+    this.define(name, tmpl);
+  },
+
+  require: function(name) {
+    if (this.loaded[name] || this.loading[name]) return;
+    this.loading[name] = true;
+    this.pending++;
+    this.load(name);
+  }
+});
+
+
+Mockle.define('mockie', ['JSON'], function() {
+
+(function(ctx){function parseJSON(str){try{return eval("("+str+")")}catch(err){return{}}}function escapeHTML(a){return a.replace(/&/g,"&amp;").replace(/"/g,"&quot;")}function buildFrame(a,b){var c=buildPayload(b),d=/MSIE (6|7|8|9)/.test(navigator.userAgent)?document.createElement('<iframe name="'+escapeHTML(c)+'">'):document.createElement("iframe");return d.src=a,d.name=c,d.setAttribute("style","position:absolute;top:0;left:-100px;width:1px;height:1px"),d}var prevMockie=ctx.Mockie,M=ctx.Mockie={};M.noConflict=function(){return ctx.Mockie=prevMockie,M};var namePrefix=":mockie:",buildPayload=M.buildPayload=function(a){return namePrefix+JSON.stringify(a)},scripts=document.getElementsByTagName("script"),me=M.element=scripts[scripts.length-1],par=me.parentElement;Mockie.config=parseJSON(me.innerHTML);var idx=ctx.name.search(namePrefix);if(idx==-1)M.payload={};else{var payload=ctx.name.substring(idx+namePrefix.length);M.payload=parseJSON(payload)}M.expose=function(a){if(M.payload.request){var b=M.payload.request;throw b.args.push(function(a){var c=buildFrame(b.caller+"?q=1",{id:M.payload.id,response:a});par.appendChild(c)}),a[b.name].apply(ctx,b.args),ctx.onerror=function(){return!0},""}if(M.payload.response){var c=ctx.parent.parent;c.MOCKIE_RECEIVE(M.payload.id,M.payload.response),ctx.location='javascript:""'}};var callbacks={},genId=0;ctx.MOCKIE_RECEIVE=function(a,b){callbacks[a](null,b)},M.request=function(a,b,c,d){function i(a,b){if(g)return;g=!0,delete callbacks[e],d(a,b)}d||(d=c,c=[]);var e=genId++,f={caller:ctx.location.toString(),name:b,args:c},g=!1,h=buildFrame(a,{id:e,request:f});setTimeout(function(){i("timeout")},3e3),callbacks[e]=i,par.appendChild(h)}})(this);
+
+});
+
+Mockle.define('JSON', [], function() {
+/*
+    json2.js
+    2012-10-08
+
+    Public Domain.
+
+    NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
+
+    See http://www.JSON.org/js.html
+
+
+    This code should be minified before deployment.
+    See http://javascript.crockford.com/jsmin.html
+
+    USE YOUR OWN COPY. IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO
+    NOT CONTROL.
+
+
+    This file creates a global JSON object containing two methods: stringify
+    and parse.
+
+        JSON.stringify(value, replacer, space)
+            value       any JavaScript value, usually an object or array.
+
+            replacer    an optional parameter that determines how object
+                        values are stringified for objects. It can be a
+                        function or an array of strings.
+
+            space       an optional parameter that specifies the indentation
+                        of nested structures. If it is omitted, the text will
+                        be packed without extra whitespace. If it is a number,
+                        it will specify the number of spaces to indent at each
+                        level. If it is a string (such as '\t' or '&nbsp;'),
+                        it contains the characters used to indent at each level.
+
+            This method produces a JSON text from a JavaScript value.
+
+            When an object value is found, if the object contains a toJSON
+            method, its toJSON method will be called and the result will be
+            stringified. A toJSON method does not serialize: it returns the
+            value represented by the name/value pair that should be serialized,
+            or undefined if nothing should be serialized. The toJSON method
+            will be passed the key associated with the value, and this will be
+            bound to the value
+
+            For example, this would serialize Dates as ISO strings.
+
+                Date.prototype.toJSON = function (key) {
+                    function f(n) {
+                        // Format integers to have at least two digits.
+                        return n < 10 ? '0' + n : n;
+                    }
+
+                    return this.getUTCFullYear()   + '-' +
+                         f(this.getUTCMonth() + 1) + '-' +
+                         f(this.getUTCDate())      + 'T' +
+                         f(this.getUTCHours())     + ':' +
+                         f(this.getUTCMinutes())   + ':' +
+                         f(this.getUTCSeconds())   + 'Z';
+                };
+
+            You can provide an optional replacer method. It will be passed the
+            key and value of each member, with this bound to the containing
+            object. The value that is returned from your method will be
+            serialized. If your method returns undefined, then the member will
+            be excluded from the serialization.
+
+            If the replacer parameter is an array of strings, then it will be
+            used to select the members to be serialized. It filters the results
+            such that only members with keys listed in the replacer array are
+            stringified.
+
+            Values that do not have JSON representations, such as undefined or
+            functions, will not be serialized. Such values in objects will be
+            dropped; in arrays they will be replaced with null. You can use
+            a replacer function to replace those with JSON values.
+            JSON.stringify(undefined) returns undefined.
+
+            The optional space parameter produces a stringification of the
+            value that is filled with line breaks and indentation to make it
+            easier to read.
+
+            If the space parameter is a non-empty string, then that string will
+            be used for indentation. If the space parameter is a number, then
+            the indentation will be that many spaces.
+
+            Example:
+
+            text = JSON.stringify(['e', {pluribus: 'unum'}]);
+            // text is '["e",{"pluribus":"unum"}]'
+
+
+            text = JSON.stringify(['e', {pluribus: 'unum'}], null, '\t');
+            // text is '[\n\t"e",\n\t{\n\t\t"pluribus": "unum"\n\t}\n]'
+
+            text = JSON.stringify([new Date()], function (key, value) {
+                return this[key] instanceof Date ?
+                    'Date(' + this[key] + ')' : value;
+            });
+            // text is '["Date(---current time---)"]'
+
+
+        JSON.parse(text, reviver)
+            This method parses a JSON text to produce an object or array.
+            It can throw a SyntaxError exception.
+
+            The optional reviver parameter is a function that can filter and
+            transform the results. It receives each of the keys and values,
+            and its return value is used instead of the original value.
+            If it returns what it received, then the structure is not modified.
+            If it returns undefined then the member is deleted.
+
+            Example:
+
+            // Parse the text. Values that look like ISO date strings will
+            // be converted to Date objects.
+
+            myData = JSON.parse(text, function (key, value) {
+                var a;
+                if (typeof value === 'string') {
+                    a =
+/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/.exec(value);
+                    if (a) {
+                        return new Date(Date.UTC(+a[1], +a[2] - 1, +a[3], +a[4],
+                            +a[5], +a[6]));
+                    }
+                }
+                return value;
+            });
+
+            myData = JSON.parse('["Date(09/09/2001)"]', function (key, value) {
+                var d;
+                if (typeof value === 'string' &&
+                        value.slice(0, 5) === 'Date(' &&
+                        value.slice(-1) === ')') {
+                    d = new Date(value.slice(5, -1));
+                    if (d) {
+                        return d;
+                    }
+                }
+                return value;
+            });
+
+
+    This is a reference implementation. You are free to copy, modify, or
+    redistribute.
+*/
+
+/*jslint evil: true, regexp: true */
+
+/*members "", "\b", "\t", "\n", "\f", "\r", "\"", JSON, "\\", apply,
+    call, charCodeAt, getUTCDate, getUTCFullYear, getUTCHours,
+    getUTCMinutes, getUTCMonth, getUTCSeconds, hasOwnProperty, join,
+    lastIndex, length, parse, prototype, push, replace, slice, stringify,
+    test, toJSON, toString, valueOf
+*/
+
+
+// Create a JSON object only if one does not already exist. We create the
+// methods in a closure to avoid creating global variables.
+
+if (typeof JSON !== 'object') {
+    JSON = {};
+}
+
+(function () {
+    'use strict';
+
+    function f(n) {
+        // Format integers to have at least two digits.
+        return n < 10 ? '0' + n : n;
+    }
+
+    if (typeof Date.prototype.toJSON !== 'function') {
+
+        Date.prototype.toJSON = function (key) {
+
+            return isFinite(this.valueOf())
+                ? this.getUTCFullYear()     + '-' +
+                    f(this.getUTCMonth() + 1) + '-' +
+                    f(this.getUTCDate())      + 'T' +
+                    f(this.getUTCHours())     + ':' +
+                    f(this.getUTCMinutes())   + ':' +
+                    f(this.getUTCSeconds())   + 'Z'
+                : null;
+        };
+
+        String.prototype.toJSON      =
+            Number.prototype.toJSON  =
+            Boolean.prototype.toJSON = function (key) {
+                return this.valueOf();
+            };
+    }
+
+    var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+        escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+        gap,
+        indent,
+        meta = {    // table of character substitutions
+            '\b': '\\b',
+            '\t': '\\t',
+            '\n': '\\n',
+            '\f': '\\f',
+            '\r': '\\r',
+            '"' : '\\"',
+            '\\': '\\\\'
+        },
+        rep;
+
+
+    function quote(string) {
+
+// If the string contains no control characters, no quote characters, and no
+// backslash characters, then we can safely slap some quotes around it.
+// Otherwise we must also replace the offending characters with safe escape
+// sequences.
+
+        escapable.lastIndex = 0;
+        return escapable.test(string) ? '"' + string.replace(escapable, function (a) {
+            var c = meta[a];
+            return typeof c === 'string'
+                ? c
+                : '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+        }) + '"' : '"' + string + '"';
+    }
+
+
+    function str(key, holder) {
+
+// Produce a string from holder[key].
+
+        var i,          // The loop counter.
+            k,          // The member key.
+            v,          // The member value.
+            length,
+            mind = gap,
+            partial,
+            value = holder[key];
+
+// If the value has a toJSON method, call it to obtain a replacement value.
+
+        if (value && typeof value === 'object' &&
+                typeof value.toJSON === 'function') {
+            value = value.toJSON(key);
+        }
+
+// If we were called with a replacer function, then call the replacer to
+// obtain a replacement value.
+
+        if (typeof rep === 'function') {
+            value = rep.call(holder, key, value);
+        }
+
+// What happens next depends on the value's type.
+
+        switch (typeof value) {
+        case 'string':
+            return quote(value);
+
+        case 'number':
+
+// JSON numbers must be finite. Encode non-finite numbers as null.
+
+            return isFinite(value) ? String(value) : 'null';
+
+        case 'boolean':
+        case 'null':
+
+// If the value is a boolean or null, convert it to a string. Note:
+// typeof null does not produce 'null'. The case is included here in
+// the remote chance that this gets fixed someday.
+
+            return String(value);
+
+// If the type is 'object', we might be dealing with an object or an array or
+// null.
+
+        case 'object':
+
+// Due to a specification blunder in ECMAScript, typeof null is 'object',
+// so watch out for that case.
+
+            if (!value) {
+                return 'null';
+            }
+
+// Make an array to hold the partial results of stringifying this object value.
+
+            gap += indent;
+            partial = [];
+
+// Is the value an array?
+
+            if (Object.prototype.toString.apply(value) === '[object Array]') {
+
+// The value is an array. Stringify every element. Use null as a placeholder
+// for non-JSON values.
+
+                length = value.length;
+                for (i = 0; i < length; i += 1) {
+                    partial[i] = str(i, value) || 'null';
+                }
+
+// Join all of the elements together, separated with commas, and wrap them in
+// brackets.
+
+                v = partial.length === 0
+                    ? '[]'
+                    : gap
+                    ? '[\n' + gap + partial.join(',\n' + gap) + '\n' + mind + ']'
+                    : '[' + partial.join(',') + ']';
+                gap = mind;
+                return v;
+            }
+
+// If the replacer is an array, use it to select the members to be stringified.
+
+            if (rep && typeof rep === 'object') {
+                length = rep.length;
+                for (i = 0; i < length; i += 1) {
+                    if (typeof rep[i] === 'string') {
+                        k = rep[i];
+                        v = str(k, value);
+                        if (v) {
+                            partial.push(quote(k) + (gap ? ': ' : ':') + v);
+                        }
+                    }
+                }
+            } else {
+
+// Otherwise, iterate through all of the keys in the object.
+
+                for (k in value) {
+                    if (Object.prototype.hasOwnProperty.call(value, k)) {
+                        v = str(k, value);
+                        if (v) {
+                            partial.push(quote(k) + (gap ? ': ' : ':') + v);
+                        }
+                    }
+                }
+            }
+
+// Join all of the member texts together, separated with commas,
+// and wrap them in braces.
+
+            v = partial.length === 0
+                ? '{}'
+                : gap
+                ? '{\n' + gap + partial.join(',\n' + gap) + '\n' + mind + '}'
+                : '{' + partial.join(',') + '}';
+            gap = mind;
+            return v;
+        }
+    }
+
+// If the JSON object does not yet have a stringify method, give it one.
+
+    if (typeof JSON.stringify !== 'function') {
+        JSON.stringify = function (value, replacer, space) {
+
+// The stringify method takes a value and an optional replacer, and an optional
+// space parameter, and returns a JSON text. The replacer can be a function
+// that can replace values, or an array of strings that will select the keys.
+// A default replacer method can be provided. Use of the space parameter can
+// produce text that is more easily readable.
+
+            var i;
+            gap = '';
+            indent = '';
+
+// If the space parameter is a number, make an indent string containing that
+// many spaces.
+
+            if (typeof space === 'number') {
+                for (i = 0; i < space; i += 1) {
+                    indent += ' ';
+                }
+
+// If the space parameter is a string, it will be used as the indent string.
+
+            } else if (typeof space === 'string') {
+                indent = space;
+            }
+
+// If there is a replacer, it must be a function or an array.
+// Otherwise, throw an error.
+
+            rep = replacer;
+            if (replacer && typeof replacer !== 'function' &&
+                    (typeof replacer !== 'object' ||
+                    typeof replacer.length !== 'number')) {
+                throw new Error('JSON.stringify');
+            }
+
+// Make a fake root object containing our value under the key of ''.
+// Return the result of stringifying the value.
+
+            return str('', {'': value});
+        };
+    }
+
+
+// If the JSON object does not yet have a parse method, give it one.
+
+    if (typeof JSON.parse !== 'function') {
+        JSON.parse = function (text, reviver) {
+
+// The parse method takes a text and an optional reviver function, and returns
+// a JavaScript value if the text is a valid JSON text.
+
+            var j;
+
+            function walk(holder, key) {
+
+// The walk method is used to recursively walk the resulting structure so
+// that modifications can be made.
+
+                var k, v, value = holder[key];
+                if (value && typeof value === 'object') {
+                    for (k in value) {
+                        if (Object.prototype.hasOwnProperty.call(value, k)) {
+                            v = walk(value, k);
+                            if (v !== undefined) {
+                                value[k] = v;
+                            } else {
+                                delete value[k];
+                            }
+                        }
+                    }
+                }
+                return reviver.call(holder, key, value);
+            }
+
+
+// Parsing happens in four stages. In the first stage, we replace certain
+// Unicode characters with escape sequences. JavaScript handles many characters
+// incorrectly, either silently deleting them, or treating them as line endings.
+
+            text = String(text);
+            cx.lastIndex = 0;
+            if (cx.test(text)) {
+                text = text.replace(cx, function (a) {
+                    return '\\u' +
+                        ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+                });
+            }
+
+// In the second stage, we run the text against regular expressions that look
+// for non-JSON patterns. We are especially concerned with '()' and 'new'
+// because they can cause invocation, and '=' because it can cause mutation.
+// But just to be safe, we want to reject all unexpected forms.
+
+// We split the second stage into 4 regexp operations in order to work around
+// crippling inefficiencies in IE's and Safari's regexp engines. First we
+// replace the JSON backslash pairs with '@' (a non-JSON character). Second, we
+// replace all simple value tokens with ']' characters. Third, we delete all
+// open brackets that follow a colon or comma or that begin the text. Finally,
+// we look to see that the remaining characters are only whitespace or ']' or
+// ',' or ':' or '{' or '}'. If that is so, then the text is safe for eval.
+
+            if (/^[\],:{}\s]*$/
+                    .test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@')
+                        .replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']')
+                        .replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+
+// In the third stage we use the eval function to compile the text into a
+// JavaScript structure. The '{' operator is subject to a syntactic ambiguity
+// in JavaScript: it can begin a block or an object literal. We wrap the text
+// in parens to eliminate the ambiguity.
+
+                j = eval('(' + text + ')');
+
+// In the optional fourth stage, we recursively walk the new structure, passing
+// each name/value pair to a reviver function for possible transformation.
+
+                return typeof reviver === 'function'
+                    ? walk({'': j}, '')
+                    : j;
+            }
+
+// If the text is not JSON parseable, then a SyntaxError is thrown.
+
+            throw new SyntaxError('JSON.parse');
+        };
+    }
+}());
+});
+
+
+Mockle.module('Browser', ['mockie', 'Source', 'Template', 'Scope', 'TemplateDirectory'], {
+  setup: function() {
+    // Expose the source
+    Mockie.expose({
+      source: function(cb) {
+        var source = Mockle.Source.create()
+          , fetchingSource = true;
+
+        window.onload = function() {
+          cb(source.get());
+        };
+      }
+    });
+
+    var element = Mockie.element;
+    this.data = {};
+    this.defs = {};
+    this.root = element.src.replace(/(^|\/)[^\/]+$/, '$1');
+    this.name = location.toString().substring(this.root.length);
+    this.scriptCounter = 0;
+    this.configs = [];
+
+    var me = this;
+    Mockle.loadedScript = function() { me.loadedScript() };
+    Mockle.include = function(str) { me.include(str) };
+    Mockle.config = function(cb) { me.configs.push(cb) };
+
+    this.include('mockle.config.js');
+
+    window.onload = function() {
+      var factories;
+      while (factories = me.configs.shift()) factories(me);
+
+      if (Mockie.config.set)
+        me.merge(Mockie.config.set);
+
+      // Invoke defined helpers
+      var use = Mockie.config.use;
+      if (use) use = use.split(' ');
+      
+      for (var i = 0; use && i < use.length; i++) {
+        var res = me.defs[use[i]]();
+        if (res) me.merge(res);
+      }
+
+      me.start();
+    };
+  },
+
+  path: function(str) {
+    return this.root + str;
+  },
+
+  loadedScript: function() {
+    if (--this.scriptCounter == 0) {
+      // Only start capturing the source after all scripts have been included.
+      this.source = Mockle.Source.create();
+    }
+  },
+
+  include: function(str) {
+    this.scriptCounter++;
+    // I heard you like escaping...
+    var error = this.escapeHTML('alert("Could not load: "+unescape("'+escape(str)+'"))');
+    document.write('<script src="'+this.escapeHTML(this.path(str))+'" onerror="'+error+'"></script>');
+    document.write('<script>Mockle.loadedScript()</script>');
+  },
+
+  defaults: function(obj) {
+    this.merge(obj);
+  },
+
+  merge: function(obj) {
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        this.data[key] = obj[key];
+      }
+    }
+  },
+
+  define: function(name, fn) {
+    if (typeof fn != 'function') {
+      var me = this, obj = fn;
+      fn = function() { me.merge(obj) };
+    };
+    this.defs[name] = fn;
+  },
+
+  html: function(str) {
+    var obj = Object(str);
+    obj.html_safe = true;
+    return obj;
+  },
+
+  start: function() {
+    var me = this;
+
+    var layout = Mockie.config.layout;
+    var dir = Mockle.TemplateDirectory.create();
+
+    dir.load = function(name) {
+      me.source.fetch(name, function(err, source) {
+        if (err) return alert(name + " failed: " + err);
+        dir.defineTemplate(name, source);
+      });
+    };
+
+    dir.done = function() {
+      me.process(me.name, dir, layout);
+    };
+
+    dir.error = function(err) {
+      var res = me.reportError(err.template, err.msg, err.loc);
+      me.write(res);
+      throw err.msg;
+    };
+
+    dir.defineTemplate(me.name, me.source.get());
+
+    if (layout) dir.require(layout);
+
+    dir.start();
+  },
+
+  process: function(name, dir, layout) {
+    var scope = Mockle.Scope.create();
+    scope.directory = dir;
+    scope.push(this.data);
+    var tmpl = dir.templates[name];
+
+    try {
+      var res = tmpl.render(scope);
+      if (layout) {
+        scope.push({content: this.html(res)});
+        res = dir.templates[layout].render(scope);
+      }
+    } catch (err) {
+      if (!err.loc) {
+        alert("Exception occurred. Check console for errors.");
+        throw err;
+      }
+
+      res = this.reportError(err.template, err.msg, err.loc);
+    }
+
+    this.write(res);
+  },
+
+  reportError: function(tmpl, msg, loc) {
+    var style = "<style>"+
+      ".error { "+
+        "background-color: #FF6B6B;"+
+        "padding: 5px 10px;"+
+      "} "+
+      ".no { float: left; width: 10px; padding: 0 20px; text-align: right; color: #999 }"+
+      ".line { clear: both; line-height: 1.5; height: 1.5em; border-bottom: 1px solid #eee }"+
+      "</style>"
+      , lineStart = '<div class="line">'
+      , lineStop = '</div>'
+      , lineMiddle = lineStop + lineStart
+      , res = style + "<pre>" + tmpl.name + "<br>"
+      , lines = tmpl.source.split("\n")
+
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i];
+      var lineno = i + 1;
+      res += lineStart + '<div class="no">'+ lineno +'</div>'
+      res += this.escapeHTML(line)
+      res += lineStop;
+
+      if (loc.first_line == lineno) {
+        res += lineStart + '<div class="no">&nbsp;</div>'
+        res += Array(loc.first_column+1).join('&nbsp;');
+        res += '<span class="error">'+msg+'</span>';
+        res += lineStop;
+      }
+    }
+
+    return res;
+  },
+
+  escapeHTML: function(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+  },
+
+  write: function(str) {
+    setTimeout(function() {
+      document.open();
+      document.write('<!DOCTYPE html>' + str);
+      document.close();
+    });
+  }
+});
+
