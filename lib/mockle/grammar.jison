@@ -89,9 +89,14 @@ if
         { $$ = {type: 'if', cond: $3, tbranch: $5, fbranch: $6} }
     ;
 
+else
+    : ELSE contents  -> $2
+    | ELSE LPAREN RPAREN contents  -> $4
+    ;
+
 if_end
     : ENDIF  -> null
-    | ELSE contents ENDIF  -> $2
+    | else ENDIF  -> $1
     | ELSEIF LPAREN expr RPAREN contents if_end
         { $$ = {type: 'if', cond: $3, tbranch: $5, fbranch: $6} }
     ;
@@ -103,7 +108,7 @@ for
 
 for_end
     : ENDFOR  -> null
-    | ELSE contents ENDFOR  -> $2
+    | else ENDFOR  -> $2
     ;
 
 call
