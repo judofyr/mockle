@@ -34,6 +34,11 @@ function runTest(test) {
     var res = tmpl.render(scope);
     assert(res == test.expected, test.name);
   } catch (err) {
+    if (test.error) {
+     assert(1, test.name);
+     return;
+    }
+
     console.log(err);
     assert(0, test.name);
     return;
