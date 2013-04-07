@@ -2,7 +2,7 @@ var fs = require('fs');
 var path = require('path');
 
 var specsDir = path.join(__dirname, 'spec/specs');
-var files = ["if"];
+var files = ["if", "for"];
 var Mockle = require('../mockle');
 var N = 0;
 
