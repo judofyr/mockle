@@ -108,7 +108,7 @@ for
 
 for_end
     : ENDFOR  -> null
-    | else ENDFOR  -> $2
+    | else ENDFOR  -> $1
     ;
 
 call
